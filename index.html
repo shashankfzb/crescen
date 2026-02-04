@@ -21,7 +21,6 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       background: linear-gradient(180deg, #f9fafb, #eef2ff);
       color: var(--text);
-      overflow-x: hidden;
     }
 
     header {
@@ -84,24 +83,6 @@
       padding: 40px 20px;
       font-size: 0.9rem;
       color: var(--muted);
-    }
-
-    @media (pointer: fine) {
-      .bubble {
-        position: fixed;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        pointer-events: none;
-        background: rgba(79, 70, 229, 0.35);
-        animation: bubbleFade 1.2s ease-out forwards;
-        z-index: 9999;
-      }
-
-      @keyframes bubbleFade {
-        from { transform: scale(1); opacity: 1; }
-        to { transform: scale(3); opacity: 0; }
-      }
     }
   </style>
 </head>
@@ -286,19 +267,6 @@
 <footer>
   © 2026 My Kegel Partner. All rights reserved.
 </footer>
-
-<script>
-  if (window.matchMedia("(pointer: fine)").matches) {
-    document.addEventListener("mousemove", function (e) {
-      const bubble = document.createElement("div");
-      bubble.className = "bubble";
-      bubble.style.left = e.clientX + "px";
-      bubble.style.top = e.clientY + "px";
-      document.body.appendChild(bubble);
-      setTimeout(() => bubble.remove(), 1200);
-    });
-  }
-</script>
 
 </body>
 </html>
